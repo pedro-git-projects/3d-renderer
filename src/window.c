@@ -6,8 +6,16 @@
 #include <stdio.h>
 #include <sys/types.h>
 
-const uint32_t WINWIDTH = 800;
-const uint32_t WINHEIGHT = 600;
+uint32_t WINWIDTH = 800;
+uint32_t WINHEIGHT = 600;
+
+
+void setWinSize() {
+	SDL_DisplayMode displayMode;
+	SDL_GetCurrentDisplayMode(0, &displayMode);
+	WINWIDTH = displayMode.w;
+	WINHEIGHT = displayMode.h;
+}
 
 SDL_Window* createWindow(void) {
 	if(SDL_Init(SDL_INIT_EVERYTHING) != 0) {
@@ -15,12 +23,14 @@ SDL_Window* createWindow(void) {
 		return NULL;
 	}
 
+	setWinSize();
+
 	SDL_Window* window = SDL_CreateWindow(
 			"3dRenderer",
 			SDL_WINDOWPOS_CENTERED, 
 			SDL_WINDOWPOS_CENTERED,
-			800, 
-			600, 
+			WINWIDTH, 
+			WINHEIGHT, 
 			SDL_WINDOW_BORDERLESS
 		);
 

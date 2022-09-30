@@ -1,4 +1,5 @@
 #include "loop.h"
+#include "window.h"
 #include <SDL2/SDL_render.h>
 #include <bits/stdint-uintn.h>
 #include <stdint.h>
@@ -18,9 +19,34 @@ void processInput(bool* isRunning) {
 	}
 }
 
-void render(SDL_Renderer* renderer) {
+void renderColorBuffer(SDL_Renderer* renderer, uint32_t* colorBuffer, SDL_Texture* colorBufferTexture) {
+	SDL_UpdateTexture(
+			colorBufferTexture, 
+			NULL, 
+			colorBuffer,
+			(int)(WINWIDTH * sizeof(uint32_t))
+		);
+	SDL_RenderCopy(
+			renderer, 
+			colorBufferTexture, 
+			NULL, 
+			NULL
+		);
+}
+
+void clearColorBuffer(uint32_t *colorBuffer, uint32_t color) {
+	for(int y = 0; y < WINHEIGHT; y++) {
+		for(int x = 0; x < WINWIDTH; x++) {
+			colorBuffer[(WINWIDTH * y) + x] = color;
+		}
+	}
+}
+
+void render(SDL_Renderer* renderer, uint32_t* colorBuffer, SDL_Texture* colorBufferTexture) {
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 	SDL_RenderClear(renderer);
+	renderColorBuffer(renderer, colorBuffer, colorBufferTexture);
+	clearColorBuffer(colorBuffer, 0xFFFFF00);
 	SDL_RenderPresent(renderer);
 }
 
