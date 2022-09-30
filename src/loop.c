@@ -1,5 +1,8 @@
 #include "loop.h"
 #include <SDL2/SDL_render.h>
+#include <bits/stdint-uintn.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 void processInput(bool* isRunning) {
 	SDL_Event event;
@@ -19,4 +22,6 @@ void render(SDL_Renderer* renderer) {
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 	SDL_RenderClear(renderer);
 	SDL_RenderPresent(renderer);
-};
+}
+
+

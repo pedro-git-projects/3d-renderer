@@ -8,7 +8,6 @@
 #include <stdbool.h>
 
 void processInput(bool* isRunning);
-
 void render(SDL_Renderer* renderer);
 
 #endif

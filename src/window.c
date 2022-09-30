@@ -2,7 +2,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
+#include <bits/stdint-uintn.h>
 #include <stdio.h>
+#include <sys/types.h>
+
+const uint32_t WINWIDTH = 800;
+const uint32_t WINHEIGHT = 600;
 
 SDL_Window* createWindow(void) {
 	if(SDL_Init(SDL_INIT_EVERYTHING) != 0) {
@@ -35,3 +40,19 @@ SDL_Renderer* createRenderer(SDL_Window* window) {
 	}
 	return renderer;
 }
+
+uint32_t* createColorBuffer(void) {
+	uint32_t* colorBuffer = (uint32_t*) malloc(sizeof(uint32_t) * WINWIDTH * WINHEIGHT);	
+	if(!colorBuffer) {
+		fprintf(stderr, "::Failed to create color buffer");
+		return NULL;
+	}
+	return colorBuffer;
+}
+
+void destroyWindow(SDL_Window *window, SDL_Renderer *renderer, u_int32_t *colorBuffer) {
+	free(colorBuffer);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
+};
