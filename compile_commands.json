@@ -1,0 +1,50 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wfatal-errors",
+      "-std=c99",
+      "-I./libs/",
+      "-o",
+      "renderer",
+      "./src/main.c"
+    ],
+    "directory": "/home/pedro/Dev/c/3d_renderer",
+    "file": "/home/pedro/Dev/c/3d_renderer/src/main.c",
+    "output": "/home/pedro/Dev/c/3d_renderer/renderer"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wfatal-errors",
+      "-std=c99",
+      "-I./libs/",
+      "-o",
+      "renderer",
+      "./src/mesh.c"
+    ],
+    "directory": "/home/pedro/Dev/c/3d_renderer",
+    "file": "/home/pedro/Dev/c/3d_renderer/src/mesh.c",
+    "output": "/home/pedro/Dev/c/3d_renderer/renderer"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wfatal-errors",
+      "-std=c99",
+      "-I./libs/",
+      "-o",
+      "renderer",
+      "./src/window.c"
+    ],
+    "directory": "/home/pedro/Dev/c/3d_renderer",
+    "file": "/home/pedro/Dev/c/3d_renderer/src/window.c",
+    "output": "/home/pedro/Dev/c/3d_renderer/renderer"
+  }
+]
