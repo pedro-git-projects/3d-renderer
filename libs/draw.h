@@ -5,5 +5,6 @@
 
 void drawGrid(uint32_t* colorBuffer);
 void drawRectangle(int x, int y, int width, int height, uint32_t color, uint32_t* colorBuffer);
+void drawPixel(int x, int y, uint32_t color, uint32_t* colorBuffer);
 
 #endif

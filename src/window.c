@@ -19,7 +19,7 @@ void setDisplayMode() {
 		
 		if(err != 0) fprintf(stderr, "Could not get display mode for video display #%d: %s", i, SDL_GetError());
       
-		SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, displayMode.w, displayMode.h, displayMode.refresh_rate);	
+		// SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, displayMode.w, displayMode.h, displayMode.refresh_rate);	
 		WINWIDTH = displayMode.w;
 		WINHEIGHT = displayMode.h;
 	}

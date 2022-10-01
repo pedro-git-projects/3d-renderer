@@ -23,3 +23,10 @@ void drawRectangle(int x, int y, int rWidth, int rHeight, uint32_t color, uint32
 		}
 	}
 }
+
+void drawPixel(int x, int y, uint32_t color, uint32_t *colorBuffer) {
+	int winWidth  = getDisplayWidth();
+	int winHeight =  getDisplayHeight();
+
+	if(x < winWidth && y < winHeight) colorBuffer[winWidth * y + x] = color; 
+}
