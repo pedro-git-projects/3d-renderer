@@ -1,5 +1,7 @@
 #include "app.h"
 #include "loop.h"
+#include "window.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 int main(void) {

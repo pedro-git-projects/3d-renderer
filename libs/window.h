@@ -15,5 +15,8 @@ SDL_Renderer* createRenderer(SDL_Window*);
 uint32_t * createColorBuffer(void);
 void destroyWindow(SDL_Window* window, SDL_Renderer* renderer, uint32_t* colorBuffer);
 void setWinSize();
+void setDisplayMode();
+int getDisplayHeight();
+int getDisplayWidth();
 
 #endif

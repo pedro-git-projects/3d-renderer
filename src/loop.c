@@ -1,4 +1,5 @@
 #include "loop.h"
+#include "draw.h"
 #include "window.h"
 #include <SDL2/SDL_render.h>
 #include <bits/stdint-uintn.h>
@@ -43,10 +44,11 @@ void clearColorBuffer(uint32_t *colorBuffer, uint32_t color) {
 }
 
 void render(SDL_Renderer* renderer, uint32_t* colorBuffer, SDL_Texture* colorBufferTexture) {
-	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
+	drawGrid(colorBuffer);
 	renderColorBuffer(renderer, colorBuffer, colorBufferTexture);
-	clearColorBuffer(colorBuffer, 0xFFFFF00);
+	clearColorBuffer(colorBuffer, 0xFF000000);
 	SDL_RenderPresent(renderer);
 }
 
