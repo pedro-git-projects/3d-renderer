@@ -47,6 +47,7 @@ void render(SDL_Renderer* renderer, uint32_t* colorBuffer, SDL_Texture* colorBuf
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 	drawGrid(colorBuffer);
+	drawRectangle(300, 200, 300, 150, 0xFFFF00FF, colorBuffer);
 	renderColorBuffer(renderer, colorBuffer, colorBufferTexture);
 	clearColorBuffer(colorBuffer, 0xFF000000);
 	SDL_RenderPresent(renderer);
